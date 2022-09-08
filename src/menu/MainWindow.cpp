@@ -122,9 +122,9 @@ void MainWindow::update(GuiController *controller)
 		}
 	}
 	
-	if(controller->chanIdx >= 1 && controller->chanIdx <= 4 && controller->data.validPointer)
+	if(controller->wpadChanIdx >= 1 && controller->wpadChanIdx <= 4 && controller->data.validPointer)
 	{
-		int wpadIdx = controller->chanIdx - 1;
+		int wpadIdx = controller->wpadChanIdx;
 		f32 posX = controller->data.x;
 		f32 posY = controller->data.y;
 		pointerImg[wpadIdx]->setPosition(posX, posY);

@@ -1,17 +1,6 @@
-# /
 /build
-/wup_installer_gx2.elf
-/wup_installer_gx2_dbg.elf
+*.elf
 *.rpx
+*.wuhb
 
-# /src/common/
-/src/common/svnrev.c
-
-# /src/resources/
 /src/resources/filelist.h
-
-/.vscode
-/wupgx2_install_channel
-/NUSPacker.jar
-
-/encryptKeyWith

@@ -19,7 +19,6 @@
 #include "InstallWindow.h"
 #include "utils/StringTools.h"
 #include "common/common.h"
-#include "dynamic_libs/os_functions.h"
 #include "system/power.h"
 #include <coreinit/mcp.h>
 #include <coreinit/memory.h>
@@ -30,6 +29,8 @@
 
 static int installCompleted = 0;
 static u32 installError = 0;
+
+extern "C" MCPError MCP_GetLastRawError(void);
 
 static void* IosInstallCallback(IOSError errorCode, void * priv_data)
 {
@@ -129,7 +130,7 @@ void InstallWindow::executeThread()
 			
 			while(time && !canceled)
 			{
-				passedMs = (OSGetTime() - startTime) * 4000ULL / BUS_SPEED;
+				passedMs = OSTicksToMilliseconds(OSGetTime() - startTime);
 				
 				if(passedMs >= 1000)
 				{

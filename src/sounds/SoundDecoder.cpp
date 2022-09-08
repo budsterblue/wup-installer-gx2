@@ -19,7 +19,6 @@
 #include <unistd.h>
 #include <coreinit/cache.h>
 #include "SoundDecoder.hpp"
-#include "dynamic_libs/os_functions.h"
 
 static const u32 FixedPointShift = 15;
 static const u32 FixedPointScale = 1 << FixedPointShift;

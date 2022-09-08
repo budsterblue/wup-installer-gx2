@@ -98,7 +98,7 @@ void HomeImg::startCountdown()
 	
 	while(time)
 	{
-		passedMs = (OSGetTime() - startTime) * 4000ULL / BUS_SPEED;
+		passedMs = OSTicksToMilliseconds(OSGetTime() - startTime);
 		
 		if(passedMs >= 1000)
 		{

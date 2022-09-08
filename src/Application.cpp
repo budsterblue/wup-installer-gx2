@@ -50,8 +50,7 @@ Application::Application()
 	controller[4] = new WPadController(GuiTrigger::CHANNEL_5);
 	
     //! load resources
-    //Resources::LoadFiles("fs:/vol/content");
-	Resources::LoadFiles("fs:/vol/external01/wiiu/apps/wup_installer_gx2/resources");
+    Resources::LoadFiles("fs:/vol/content");
 
 	bgMusic = new GuiSound(Resources::GetFile("bgMusic.ogg"), Resources::GetFileSize("bgMusic.ogg"));
 	bgMusic->SetLoop(true);

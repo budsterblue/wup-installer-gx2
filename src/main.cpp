@@ -1,24 +1,16 @@
-#include "Application.h"
-#include "dynamic_libs/padscore_functions.h"
-#include "system/memory.h"
+#include <whb/log.h>
 #include "utils/logger.h"
+#include "Application.h"
+#include "system/memory.h"
 
-/* Entry point */
 extern "C" int Menu_Main(void)
 {
-	//!*******************************************************************
-	//!                   Initialize function pointers                   *
-	//!*******************************************************************
-	InitPadScoreFunctionPointers();
-	
-	log_printf("Function exports loaded\n");
-	
 	//!*******************************************************************
 	//!                    Initialize heap memory                        *
 	//!*******************************************************************
 	log_print("Initialize memory management\n");
 	memoryInitialize();
-	
+
 	//!*******************************************************************
 	//!                    Enter main application                        *
 	//!*******************************************************************

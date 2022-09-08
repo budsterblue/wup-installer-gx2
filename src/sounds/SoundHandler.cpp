@@ -31,7 +31,6 @@
 #include "WavDecoder.hpp"
 #include "Mp3Decoder.hpp"
 #include "OggDecoder.hpp"
-#include "dynamic_libs/os_functions.h"
 
 SoundHandler * SoundHandler::handlerInstance = NULL;
 
