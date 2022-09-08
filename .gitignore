@@ -3,4 +3,4 @@
 *.rpx
 *.wuhb
 
-/src/resources/filelist.h
+src/resources/filelist.h
