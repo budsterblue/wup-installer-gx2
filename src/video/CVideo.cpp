@@ -23,6 +23,7 @@
 #include "shaders/Shader3D.h"
 #include "shaders/ShaderFractalColor.h"
 #include "shaders/FXAAShader.h"
+#include "utils/utils.h"
 
 CVideo::CVideo(s32 forceTvScanMode, s32 forceDrcScanMode)
 {

@@ -14,10 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ****************************************************************************/
-//#include <coreinit/core.h>
 #include <coreinit/foreground.h>
 #include <proc_ui/procui.h>
-//#include <sysapp/launch.h>
 #include "Application.h"
 #include "gui/FreeTypeGX.h"
 #include "gui/GuiImageAsync.h"
@@ -29,7 +27,6 @@
 #include "system/memory.h"
 #include "utils/logger.h"
 #include "video/CursorDrawer.h"
-#include "menu/HomeImg.h"
 
 Application *Application::applicationInstance = NULL;
 bool Application::exitApplication = false;
@@ -68,8 +65,6 @@ Application::~Application()
 	
 	for(int i = 0; i < 5; i++)
 		delete controller[i];
-	
-	HomeImg::destroyInstance();
 	
 	AsyncDeleter::destroyInstance();
 	GuiImageAsync::threadExit();
@@ -159,7 +154,7 @@ bool Application::procUI(void)
 		case PROCUI_STATUS_RELEASE_FOREGROUND:
 		{
 			log_printf("PROCUI_STATUS_RELEASE_FOREGROUND\n");
-			if(video != NULL)
+			if(video != nullptr)
 			{
 				// we can turn of the screen but we don't need to and it will display the last image
 				video->tvEnable(true);
@@ -167,11 +162,11 @@ bool Application::procUI(void)
 				
 				log_printf("delete fontSystem\n");
 				delete fontSystem;
-				fontSystem = NULL;
+				fontSystem = nullptr;
 				
 				log_printf("delete video\n");
 				delete video;
-				video = NULL;
+				video = nullptr;
 				
 				log_printf("deinitialze memory\n");
 				memoryRelease();
@@ -187,7 +182,7 @@ bool Application::procUI(void)
 		{
 			if(!quitRequest)
 			{
-				if(video == NULL)
+				if(video == nullptr)
 				{
 					log_printf("PROCUI_STATUS_IN_FOREGROUND\n");
 					log_printf("initialze memory\n");
@@ -199,16 +194,15 @@ bool Application::procUI(void)
 					
 					//! setup default Font
 					log_printf("Initialize main font system\n");
-					fontSystem = new FreeTypeGX(Resources::GetFile("font.ttf"), Resources::GetFileSize("font.ttf"), true);
+					auto *fontSystem = new FreeTypeGX(Resources::GetFile("font.ttf"), Resources::GetFileSize("font.ttf"), true);
 					GuiText::setPresetFont(fontSystem);
-					
-					if(mainWindow == NULL)
+
+					if (mainWindow == nullptr)
 					{
 						log_printf("Initialize main window\n");
 						mainWindow = new MainWindow(video->getTvWidth(), video->getTvHeight());
 					}
 				}
-				
 				executeProcess = true;
 			}
 			break;
@@ -240,14 +234,6 @@ void Application::executeThread(void)
 		{
 			if(controller[i]->update(video->getTvWidth(), video->getTvHeight()) == false)
 				continue;
-			
-			if(exitDisabled)
-			{
-				if(controller[i]->data.buttons_d & VPAD_BUTTON_HOME)
-				{
-					HomeImg::Show();
-				}
-			}
 			
 			//! update controller states
 			mainWindow->update(controller[i]);

@@ -20,6 +20,7 @@
 #include "menu/MainWindow.h"
 #include "video/CVideo.h"
 #include "system/CThread.h"
+#include "utils/utils.h"
 
 // forward declaration
 //class FreeTypeGX;

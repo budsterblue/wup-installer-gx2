@@ -17,6 +17,7 @@
 #include "GuiParticleImage.h"
 #include "video/CVideo.h"
 #include "video/shaders/ColorShader.h"
+#include "utils/utils.h"
 
 #define CIRCLE_VERTEX_COUNT     36
 

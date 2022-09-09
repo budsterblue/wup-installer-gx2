@@ -1,6 +1,9 @@
 #ifndef __LOGGER_H_
 #define __LOGGER_H_
 
+#include <whb/log.h>
+#include <whb/log_udp.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

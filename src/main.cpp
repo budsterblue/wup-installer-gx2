@@ -1,4 +1,3 @@
-#include <whb/log.h>
 #include "utils/logger.h"
 #include "Application.h"
 #include "system/memory.h"

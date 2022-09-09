@@ -18,6 +18,7 @@
 #include "video/CVideo.h"
 #include "video/shaders/Texture2DShader.h"
 #include "video/shaders/ColorShader.h"
+#include "utils/utils.h"
 
 static const f32 fPiDiv180 = ((f32)M_PI / 180.0f);
 

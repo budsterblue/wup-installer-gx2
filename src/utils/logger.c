@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
-#include <whb/log_udp.h>
 #include "common/common.h"
 #include "logger.h"
 

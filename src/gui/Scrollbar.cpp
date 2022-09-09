@@ -23,6 +23,7 @@
  ***************************************************************************/
 #include "Scrollbar.h"
 #include "resources/Resources.h"
+#include "utils/utils.h"
 
 Scrollbar::Scrollbar(int h)
     : touchTrigger(GuiTrigger::CHANNEL_1, GuiTrigger::VPAD_TOUCH)

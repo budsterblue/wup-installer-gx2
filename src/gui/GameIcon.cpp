@@ -4,6 +4,7 @@
 #include "video/CVideo.h"
 #include "video/shaders/Shader3D.h"
 #include "video/shaders/ShaderFractalColor.h"
+#include "utils/utils.h"
 
 static const f32 cfIconMirrorScale = 1.15f;
 static const f32 cfIconMirrorAlpha = 0.45f;

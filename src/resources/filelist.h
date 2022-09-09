@@ -1,7 +1,7 @@
 /****************************************************************************
  * Resource files.
  * This file is generated automatically.
- * Includes 30 files.
+ * Includes 29 files.
  *
  * NOTE:
  * Any manual modification of this file will be overwriten by the generation.
@@ -26,7 +26,6 @@ typedef struct _RecourceFile
 #include "errorIcon_png.h"
 #include "exclamationIcon_png.h"
 #include "font_ttf.h"
-#include "home_png.h"
 #include "informationIcon_png.h"
 #include "messageBox_png.h"
 #include "messageBoxButton_png.h"
@@ -59,7 +58,6 @@ static RecourceFile RecourceList[] =
 	{"errorIcon.png", errorIcon_png, errorIcon_png_size, NULL, 0},
 	{"exclamationIcon.png", exclamationIcon_png, exclamationIcon_png_size, NULL, 0},
 	{"font.ttf", font_ttf, font_ttf_size, NULL, 0},
-	{"home.png", home_png, home_png_size, NULL, 0},
 	{"informationIcon.png", informationIcon_png, informationIcon_png_size, NULL, 0},
 	{"messageBox.png", messageBox_png, messageBox_png_size, NULL, 0},
 	{"messageBoxButton.png", messageBoxButton_png, messageBoxButton_png_size, NULL, 0},
