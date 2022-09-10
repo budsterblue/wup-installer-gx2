@@ -14,6 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ****************************************************************************/
+#include <sysapp/launch.h>
+
 #include "MainWindow.h"
 #include "Application.h"
 #include "utils/StringTools.h"
@@ -207,7 +209,7 @@ void MainWindow::SetDrcHeader()
 	versionText.setPosition(-15, -40);
 	versionText.setBlurGlowColor(5.0f, glm::vec4(0.0, 0.0, 0.0f, 1.0f));
 	versionText.setAlignment(ALIGN_RIGHT | ALIGN_TOP);
-	versionText.setTextf("%s (controller mod v1)", WUP_GX2_VERSION);
+	versionText.setTextf("%s (Aroma)", WUP_GX2_VERSION);
 	
 	headerFrame.setSize(titleImg.getWidth(), titleImg.getHeight());
 	headerFrame.setPosition(0, 310);
@@ -269,9 +271,7 @@ void MainWindow::OnInstallWindowClosed(GuiElement *element)
 
 void MainWindow::OnErrorMessageBoxClick(GuiElement *element, int ok)
 {
-	element->setEffect(EFFECT_FADE, -10, 255);
-	element->setState(GuiElement::STATE_DISABLED);
-	element->effectFinished.connect(this, &MainWindow::OnBrowserCloseEffectFinish);
+	SYSLaunchMenu();
 }
 
 void MainWindow::OnOpenEffectFinish(GuiElement *element)
