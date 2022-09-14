@@ -177,8 +177,10 @@ int CFolderList::GetSelectedCount()
 int CFolderList::Get()
 {
 	Reset();
+
+    std::string basePath = "fs:/vol/external01/wudump";
 	
-	DirList dir("fs:/vol/external01/install", NULL, DirList::Dirs);
+	DirList dir(basePath, NULL, DirList::Dirs);
 	
 	int cnt = dir.GetFilecount();
 	if(cnt > 0)
@@ -208,14 +210,14 @@ int CFolderList::Get()
 	}
 	else
 	{
-		dir.LoadPath("fs:/vol/external01/install", ".tik", DirList::Files);
+		dir.LoadPath(basePath, ".tik", DirList::Files);
 		
 		cnt = dir.GetFilecount();
 		if(cnt > 0)
 		{
 			AddFolder();
 			Folders.at(0)->name = "install";
-			Folders.at(0)->path = "fs:/vol/external01/install";
+			Folders.at(0)->path = basePath;
 			Folders.at(0)->selected = false;
 			Folders.at(0)->sequence = 0;
 		}
