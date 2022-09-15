@@ -189,23 +189,48 @@ int CFolderList::Get()
 		
 		for(int i = 0; i < cnt; i++)
 		{
-			std::string path = dir.GetFilepath(i);
-			path += "/title.tik";
-			
-			CFile * file = new CFile(path, CFile::ReadOnly);
-			
-			if(file->isOpen())
-			{
-				AddFolder();
-				Folders.at(j)->name = dir.GetFilename(i);
-				Folders.at(j)->path = dir.GetFilepath(i);
-				Folders.at(j)->selected = false;
-				Folders.at(j)->sequence = 0;
-				
-				j++;
-			}
-			
-			delete file;
+            std::string filename = dir.GetFilename(i);
+            std::string path = dir.GetFilepath(i);
+
+            if (filename.rfind("WUP-", 0) == 0)
+            {
+                DirList gmdir(path, NULL, DirList::Dirs);
+                int gmcnt = gmdir.GetFilecount();
+                
+                for(int k = 0; k < gmcnt; k++)
+                {
+                    std::string gmfilename = gmdir.GetFilename(k);
+                    std::string gmpath = gmdir.GetFilepath(k);
+                    if (gmfilename.rfind("GM", 0) == 0)
+                    {
+                        AddFolder();
+                        Folders.at(j)->name = gmfilename;
+                        Folders.at(j)->path = gmpath;
+                        Folders.at(j)->selected = false;
+                        Folders.at(j)->sequence = 0;
+                        
+                        j++;
+                    }
+                }
+            }
+            else
+            {
+                
+                CFile * file = new CFile(path + "/title.tik", CFile::ReadOnly);
+                
+                if(file->isOpen())
+                {
+                    AddFolder();
+                    Folders.at(j)->name = filename;
+                    Folders.at(j)->path = path;
+                    Folders.at(j)->selected = false;
+                    Folders.at(j)->sequence = 0;
+                    
+                    j++;
+                }
+                
+                delete file;
+            }
 		}
 	}
 	else
